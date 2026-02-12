@@ -1,8 +1,8 @@
 OpenCV Practice Projects from Udemy Course, already completed or in progress:
 
-Project 1 : Python Program to extract frames using OpenCV
-Project 2 : White and black dot detection using OpenCV
-Project 3 : Displaying the coordinates of the points clicked on the image
+* Project 1 : Python Program to extract frames using OpenCV
+* Project 2 : White and black dot detection using OpenCV
+* Project 3 : Displaying the coordinates of the points clicked on the image
 Project 4 : OpenCV BGR color palette with trackbars
 Project 5 : Play a video in reverse mode using OpenCV
 Project 6 : Draw rectangular shape and extract objects
