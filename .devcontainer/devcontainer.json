@@ -1,0 +1,22 @@
+{
+  "name": "Python OpenCV Video Dev",
+  "image": "docker.io/borda/docker_python-opencv-ffmpeg",
+  // "image": "docker.io/library/python:3.9",
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,z",
+  "mounts": [
+    "source=/home/georgeker/myVideography/myArchive,target=/myArchive,type=bind,z",
+    "source=/home/georgeker/INPUT,target=/INPUT,type=bind,z",
+    "source=/home/georgeker/OUTPUT,target=/OUTPUT,type=bind,z"
+  ],
+  // "postCreateCommand": "pip install --upgrade pip && pip install -r /workspace/requirements.txt",
+  "postCreateCommand": "pip install --upgrade pip",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylint"
+      ]
+    }
+  }
+}
