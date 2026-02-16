@@ -10,6 +10,7 @@ if img is None:
 
 gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 
+cv.imshow('gray_test', gray)
 cv.waitKey(0)
 cv.destroyAllWindows()
 quit()
