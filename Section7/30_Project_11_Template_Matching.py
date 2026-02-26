@@ -1,4 +1,4 @@
-import cv2 as cv
+import cv
 import os
 import pytesseract
 
