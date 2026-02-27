@@ -2,7 +2,7 @@ import cv2 as cv
 import imutils
 import os
 
-video_path = os.path.expanduser('~/INPUT/TEST_VIDEO_people.mp4')
+video_path = os.path.expanduser('~/INPUT/TEST_VIDEO.mp4')
 
 hog = cv.HOGDescriptor()
 hog.setSVMDetector(cv.HOGDescriptor_getDefaultPeopleDetector())
