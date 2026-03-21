@@ -4,7 +4,7 @@ from imutils.object_detection import non_max_suppression
 import os
 import numpy as np
 
-video_path = os.path.expanduser('~/INPUT/TEST_VIDEO.mp4')
+video_path = os.path.expanduser('~/INPUT/TEST_VIDEO_people.mp4')
 
 hog = cv.HOGDescriptor()
 hog.setSVMDetector(cv.HOGDescriptor_getDefaultPeopleDetector())
@@ -17,14 +17,15 @@ while cap.isOpened():
         img = imutils.resize(image=img, width= int(img.shape[1]/2), height= int(img.shape[0]/2))
         
         (rects, weights) = hog.detectMultiScale(img, winStride=(4,4), padding=(8,8), scale=1.25)
-        # for (x, y, w, h) in rects:
-            # cv.rectangle(img, (x,y), (x+w, y+h), (0,0, 255), 1)
 
         rects = np.array([[x, y, x + w, y + h] for (x, y, w, h) in rects])
-        pick = non_max_suppression(rects, probs=None, overlapThresh=0.65)
+        pick = non_max_suppression(rects, probs=None, overlapThresh=0.3)
 
         for (xA, yA, xB, yB) in pick:
-            cv.rectangle(img, (xA, yA), (xB, yB), (0,255,0), 1)
+            cv.rectangle(img, (xA, yA), (xB, yB), (0,0,0), 1)
+            pick_roi = img[yA:yB, xA:xB]
+            blurred_roi = cv.GaussianBlur(pick_roi, (99, 99), 4)
+            img[yA:yB, xA:xB] = blurred_roi
         
         cv.imshow('Pedestrian Detection', img)
         key = cv.waitKey(30) 
